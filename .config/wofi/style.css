@@ -1,0 +1,53 @@
+/* Gruvbox Dark Palette */
+window {
+    margin: 5px;
+    border: 2px solid #928374; /* Gray border */
+    background-color: #282828; /* Dark background */
+    border-radius: 4px;        /* Sharp, subtle rounding */
+    font-family: "JetBrains Mono", "monospace";
+    font-size: 14px;
+}
+
+#outer-box {
+    margin: 10px;
+    padding: 5px;
+}
+
+#input {
+    margin: 5px;
+    border: 1px solid #504945;
+    color: #ebdbb2;           /* Light cream text */
+    background-color: #3c3836; /* Slightly lighter dark bg */
+    border-radius: 4px;
+    padding: 8px;
+}
+
+#inner-box {
+    margin-top: 10px;
+}
+
+#entry {
+    padding: 8px;
+    margin: 2px 0px;
+    border-radius: 4px;
+}
+
+/* The "Selected" highlight uses Gruvbox Orange */
+#entry:selected {
+    background-color: #fe8019; 
+    outline: none;
+}
+
+#text {
+    margin-left: 10px;
+    color: #ebdbb2;
+}
+
+#text:selected {
+    color: #282828; /* Dark text on orange background */
+    font-weight: bold;
+}
+
+#img {
+    margin-right: 8px;
+}

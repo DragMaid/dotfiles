@@ -1,0 +1,11 @@
+width=350
+height=90%
+location=left
+xoffset=15
+yoffset=0
+show=drun
+prompt=Search...
+filter_rate=100
+image_size=20
+allow_images=false
+no_actions=true

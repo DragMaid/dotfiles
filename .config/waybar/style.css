@@ -1,0 +1,37 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 7 Free", sans-serif;
+    font-size: 13px;
+}
+
+window#waybar {
+    background: #2d2d2d;
+    color: #ffffff;
+}
+
+#backlight, #pulseaudio, #battery, #network, #temperature, #memory, #clock, #tray {
+    padding: 0 10px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: #ffffff;
+}
+
+#workspaces button.focused {
+    background: #285577;
+    border-bottom: 2px solid #ffffff;
+}
+
+#battery.critical:not(.charging) {
+    color: #f53c3c;
+}
+
+#pulseaudio.muted {
+    color: #f53c3c;
+}
+
+#memory {
+    color: #ffffff;
+}
