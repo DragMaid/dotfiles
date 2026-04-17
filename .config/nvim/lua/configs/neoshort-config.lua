@@ -120,5 +120,19 @@ vim.keymap.set("n", "<C-b>", "<cmd>cprev<cr>", { silent = true, noremap = true }
 -- Shortcuts to operate the diagnostic messages
 vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, opts)
 vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, opts)
-vim.keymap.set('n', '<leader>d', function() vim.diagnostic.open_float() end, opts)
+-- vim.keymap.set('n', '<leader>d', function() vim.diagnostic.open_float() end, opts)
 vim.keymap.set('n', '<leader>do', function() vim.diagnostic.setloclist() end, opts)
+
+-- Diagnostic
+vim.keymap.set('n', 'K', function() require('hover').hover({ providers = { 'hover.providers.lsp' } }) end)
+
+vim.keymap.set('n', '<leader>d', function() require('hover').hover({ providers = { 'hover.providers.diagnostic' } }) end)
+
+vim.keymap.set('n', 'gK', function() require('hover').enter() end)
+
+-- Shortcut for loading lsp for all files
+vim.keymap.set('n', '<leader>ds', function()
+    for _, client in ipairs(vim.lsp.get_clients()) do
+        require("workspace-diagnostics").populate_workspace_diagnostics(client, 0)
+    end
+end, { noremap = true })

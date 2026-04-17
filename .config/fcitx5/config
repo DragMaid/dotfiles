@@ -31,7 +31,7 @@ TogglePreedit=
 ModifierOnlyKeyTimeout=250
 
 [Hotkey/EnumerateForwardKeys]
-0=Control+Q
+0=Super+Q
 
 [Behavior]
 # Active By Default

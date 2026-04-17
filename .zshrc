@@ -126,3 +126,7 @@ export NVM_DIR="$HOME/.nvm"
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export SDL_IM_MODULE=fcitx
+[ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+export PATH=$PATH:$HOME/.cargo/bin/

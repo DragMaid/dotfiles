@@ -17,7 +17,7 @@ set $up k
 set $right l
 
 # Your preferred terminal emulator
-set $term alacritty
+set $term ghostty
 
 # Your preferred application launcher
 set $menu wofi --show run
@@ -25,8 +25,7 @@ set $menu wofi --show run
 ### Output configuration
 exec sleep 2 && nm-applet --indicator
 
-# TODO: change the wallpaper
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+exec swaybg -i ~/Pictures/Wallpapers/mia.png -m fill
 
 ### Idle configuration
 exec swayidle -w \
@@ -74,14 +73,18 @@ input "type:keyboard" {
 
 # Custom bindings:
 	bindsym $mod+Shift+b exec brave
+
     # 1. Partial Selection (The fix: uses direct execution)
-    bindsym $mod+p exec mkdir -p ~/Pictures/Screenshots && grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
+    bindsym $mod+p exec mkdir -p ~/Pictures/Screenshots && grim -g "$(slurp)" - | tee ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png') | wl-copy
 
     # 2. Full Screen (Mod+Shift+P)
-    bindsym $mod+Shift+p exec mkdir -p ~/Pictures/Screenshots && sleep 0.2 && grim ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
+    bindsym $mod+Shift+p exec mkdir -p ~/Pictures/Screenshots && sleep 0.2 && grim - | tee ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png') | wl-copy
 
     # 3. Full Screen (Print Key)
-    bindsym Print exec mkdir -p ~/Pictures/Screenshots && sleep 0.2 && grim ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png')
+    bindsym Print exec mkdir -p ~/Pictures/Screenshots && sleep 0.2 && grim - | tee ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H%M%S.png') | wl-copy
+
+    bindsym Control+space exec --no-startup-id dunstctl close
+    bindsym Control+Shift+space exec --no-startup-id dunstctl close-all
 
 # Moving around:
     # Move your focus around

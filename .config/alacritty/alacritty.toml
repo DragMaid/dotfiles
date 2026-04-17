@@ -24,22 +24,15 @@ foreground = "#F9F9F9"
 
 [font]
 size = 10
+normal = { family = "JetBrainsMonoNL Nerd Font Propo" }
+bold = { family = "JetBrainsMonoNL Nerd Font Propo" }
+italic = { family = "JetBrainsMonoNL Nerd Font Propo" }
+bold_italic = { family = "JetBrainsMonoNL Nerd Font Propo" }
 
-[font.bold]
-family = "hack"
-style = "Bold"
-
-[font.bold_italic]
-family = "monospace"
-style = "Bold Italic"
-
-[font.italic]
-family = "hack"
-style = "Italic"
-
-[font.normal]
-family = "hack"
-style = "Regular"
+#normal = { family = "Hack" }
+#bold = { family = "Hack" }
+#italic = { family = "Hack" }
+#bold_italic = { family = "Hack" }
 
 [[keyboard.bindings]]
 action = "ToggleFullscreen"

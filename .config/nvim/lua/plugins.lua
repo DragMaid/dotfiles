@@ -2,6 +2,9 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use { 'wbthomason/packer.nvim' }
 
+    -- Better hover ui
+    use { 'lewis6991/hover.nvim' }
+
     -- Vim lua support
     use { 'nvim-lua/plenary.nvim' }
 
@@ -12,6 +15,8 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+    -- Show vim lsp
+    use { 'j-hui/fidget.nvim', config = function() require('fidget').setup() end }
 
     -- Ui-select
     use { 'nvim-telescope/telescope-ui-select.nvim' }
@@ -87,9 +92,31 @@ return require('packer').startup(function(use)
         requires = { "nvim-lua/plenary.nvim" }
     })
 
+    use { 'preservim/nerdtree' }
+
+    use { 'ryanoasis/vim-devicons' }
+
+    use { "artemave/workspace-diagnostics.nvim" }
+
+    -- AI features
     --use({ 'github/copilot.vim' })
 
-    use({ 'preservim/nerdtree' })
+    -- Avante for AI chats
+    -- Required plugins
+    --use 'MunifTanjim/nui.nvim'
+    --use 'MeanderingProgrammer/render-markdown.nvim'
 
-    use({ 'ryanoasis/vim-devicons' })
+    ---- Optional dependencies
+    --use 'HakonHarnes/img-clip.nvim'
+    --use 'zbirenbaum/copilot.lua'
+    --use 'stevearc/dressing.nvim'
+    --use 'folke/snacks.nvim'
+
+    ---- Avante.nvim with build process
+    --use {
+    --'yetone/avante.nvim',
+    --branch = 'main',
+    --run = 'make',
+    --config = function() require('avante').setup() end
+    --}
 end)

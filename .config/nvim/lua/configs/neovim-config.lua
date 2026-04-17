@@ -1,8 +1,11 @@
 vim.o.mouse = ""
 
 vim.o.background = 'dark'
---vim.g.gruvbox_contrast_dark = 'dark'
+vim.g.gruvbox_contrast_dark = 'dark'
 vim.cmd([[colorscheme gruvbox]])
+--vim.g.ayucolor="mirage"
+--vim.cmd([[colorscheme ayu]])
+--vim.cmd([[colorscheme default]])
 
 -- Set theme transparency
 vim.cmd([[
@@ -11,15 +14,15 @@ vim.cmd([[
     highlight SignColumn ctermbg=NONE guibg=NONE
 ]])
 
-vim.opt.guifont="hack_nerd_font:h21"
-vim.opt.clipboard="unnamedplus"
+vim.opt.guifont="JetBrainsMono_Nerd_Font:h21"
+-- vim.opt.clipboard="unnamedplus"
 
 -- Basic vim configs
 vim.g.python_recommended_style = false
 vim.opt.guicursor = ""
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.hlsearch = false
+--vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.foldenable = false
 
@@ -67,13 +70,3 @@ vim.api.nvim_exec([[
     au FocusGained,BufEnter * :checktime
     au VimLeave * :!clear
 ]], false)
-
--- Enable word wrap for Markdown files
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
-  callback = function()
-    vim.opt_local.wrap = true       -- enable line wrapping
-    vim.opt_local.linebreak = true  -- break at word boundaries
-  end,
-})
-
