@@ -1,0 +1,131 @@
+;; ----------------------------
+;; Kanata config for JP keyboard
+;; ----------------------------
+
+(defcfg
+  process-unmapped-keys yes
+)
+
+;; Japanese key remaps
+(deflocalkeys-linux
+  fn   143
+  hk   92
+  mhk  94
+  ktk  93
+  ralt 100
+  rctl 97
+  home 102
+  end  107
+  ins  110
+  del  111
+  yen  124
+  ro   89
+  pgu  104
+  pgd  109
+  srq  99
+)
+
+
+;; Physical keyboard layout
+(defsrc
+  esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 home end ins del
+  grv    1    2    3    4    5    6    7    8    9    0    -    =    yen   bspc
+  tab    q    w    e    r    t    y    u    i    o    p    [    ]    ret
+  caps   a    s    d    f    g    h    j    k    l    ;    '    \
+  lsft   z    x    c    v    b    n    m    ,    .    /    ro   rsft
+  fn   lctl  lmet lalt  mhk   spc   hk  ktk ralt srq rctl pgu   ▲   pgd
+                                                           ◀    ▼    ▶
+)
+
+(defalias
+  ;; toggle layer aliases
+  vim (layer-toggle vimmode)
+  gar (tap-hold-release 200 200 g @vim)
+
+  ;; layer setup
+  lay (layer-toggle layers)
+  grl (tap-hold-release 200 200 grv @lay)
+
+  ;; change the base layer for no homerow mods
+  bas (layer-switch base)
+  nmd (layer-switch no-mods)
+)
+
+;; Tap/hold timings
+(defvar
+  p-tap-time 200
+  p-hold-time 200
+  tap-time 200
+  hold-time 200
+)
+
+;; Base layer integrated with Japanese key remaps
+;; Hardcore mode to get used to this
+(deflayer base
+  caps   f1   f2   f3   f4   f5     f6    f7    f8    f9    f10   f11  f12  home end ins del
+  @grl   1    2    3    4    5       6    7     8     9     0     -    =    lrld  _
+  tab    q    w    e    r    t       y    u     i     o     p     [    ]    ret
+  @esc   @a   @s   @d   @f   @gar    h    @j    @k    @l    @;    @'   \
+  _      z    x    c    v    b       n    m     ,     .     /     ro   rsft
+  _      lalt lmet lsft ret  spc  bspc    \  @ralt   fn   rctl   pgu   ▲   pgd
+                                                                  ◀    ▼    ▶
+)
+
+;; Layers switcher
+(deflayer layers
+  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _
+  _  @nmd @bas lrld _  _  _  _  _  _  _  _  _  _  _
+  _  _  _  _  _  _  _  _  _  _  _  _  _  _
+  _  _  _  _  _  _  _  _  _  _  _  _  _
+  _  _  _  _  _  _  _  _  _  _  _  _  _
+  _  _  _  _  _  _  _  _  _  _  _  _  _  _
+                                   _  _  _
+)
+
+;; Vim-like commands layer
+(deflayer vimmode
+  caps  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  home end ins del
+  grv   1    2    3    4    5    6    7    8    9    0     -    =   yen  bspc
+  _     _    _    _    _    _    _    home pgdn pgup C-tab _    _    _ 
+  esc   _    _   lsft  _    _    _    left down up   right _    _    
+  lsft  _    _    _    _    _    C-left _  C-right _   _   _    _
+  fn    lctl _    _    _    _    _    _    _    _    _     _    _    _
+                                                           _    _    _
+)
+
+;; No-homerow-mods layer
+(deflayer no-mods
+  caps   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12 home end ins del
+  grv    1    2    3    4    5    6    7    8    9    0    -    =    yen   bspc
+  tab    q    w    e    r    t    y    u    i    o    p    [    ]    ret
+  @esc   a    s    d    f    g    h    j    k    l    ;    @'   \
+  lsft   z    x    c    v    b    n    m    ,    .    /    ro   rsft
+  lctl   lalt lmet lsft ret  spc  bspc    \  @ralt   fn   rctl   pgu   ▲   pgd
+                                                                  ◀    ▼    ▶
+)
+
+;; homerow mods 
+(defalias
+  a (tap-hold $p-tap-time $p-hold-time a lmet )
+  s (tap-hold $tap-time $hold-time s lalt )
+  d (tap-hold $tap-time $hold-time d lsft )
+  f (tap-hold $tap-time $hold-time f lctl )
+
+  j (tap-hold $tap-time $hold-time j rctl )
+  k (tap-hold $tap-time $hold-time k rsft )
+  l (tap-hold $tap-time $hold-time l ralt )
+  ; (tap-hold $p-tap-time $p-hold-time ; lmet)
+)
+
+;; additional shifts
+(defalias
+  esc (tap-hold-press $tap-time $hold-time esc lsft)
+  '  (tap-hold-press $tap-time $hold-time ' lsft)
+)
+
+
+;; thumb keys with more functionality
+(defalias
+  ralt (tap-hold-press $tap-time $hold-time bspc rsft)
+  spc  (tap-hold $tap-time $hold-time spc lctl)
+)

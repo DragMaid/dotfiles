@@ -33,6 +33,8 @@ exec swayidle -w \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
          before-sleep 'swaylock -f -c 000000'
 
+exec kanata -c ~/.config/kanata/config.kbd
+
 ### Input configuration
 # Read `man 5 sway-input` for more information about this section.
 input type:touchpad {
@@ -43,11 +45,6 @@ input type:touchpad {
     tap_button_map lmr
     drag enabled
     drag_lock disabled
-}
-
-input "type:keyboard" {
-    xkb_layout "eu"
-    xkb_options "caps:swapescape"
 }
 
 ### Key bindings
