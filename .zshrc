@@ -107,7 +107,9 @@ alias or='nvim $HOME/Docs/obsidian/JCU-vault/inbox/*.md'
 alias jcu='cd $HOME/Code/homework/jcu/'
 alias on='/usr/local/bin/on'
 alias og='/usr/local/bin/og'
-alias vim='nvim'
+vim() {
+  neovide "$@" > /tmp/neovide.log 2>&1 &
+}
 
 export TERMINFO_DIRS=/usr/share/terminfo/
 
@@ -129,4 +131,4 @@ export SDL_IM_MODULE=fcitx
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
 
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
-export PATH=$PATH:$HOME/.cargo/bin/
+export PATH=$PATH:$HOME/.cargo/bin/:$HOME/Packages/flutter/bin

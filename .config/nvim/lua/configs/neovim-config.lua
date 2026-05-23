@@ -8,11 +8,11 @@ vim.cmd([[colorscheme gruvbox]])
 --vim.cmd([[colorscheme default]])
 
 -- Set theme transparency
-vim.cmd([[
-    highlight Normal     ctermbg=NONE guibg=NONE
-    highlight LineNr     ctermbg=NONE guibg=NONE
-    highlight SignColumn ctermbg=NONE guibg=NONE
-]])
+-- vim.cmd([[
+--     highlight Normal     ctermbg=NONE guibg=NONE
+--     highlight LineNr     ctermbg=NONE guibg=NONE
+--     highlight SignColumn ctermbg=NONE guibg=NONE
+-- ]])
 
 vim.opt.guifont="JetBrainsMono_Nerd_Font:h21"
 -- vim.opt.clipboard="unnamedplus"
