@@ -119,4 +119,12 @@ return require('packer').startup(function(use)
     --run = 'make',
     --config = function() require('avante').setup() end
     --}
+
+    -- Dart lsp
+    use { 'dart-lang/dart-vim-plugin' }
+    use { 'natebosch/vim-lsc' }
+    use { 'natebosch/vim-lsc-dart' }
+
+    -- Packer
+    use { "sindrets/diffview.nvim" }
 end)

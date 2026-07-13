@@ -132,3 +132,7 @@ export SDL_IM_MODULE=fcitx
 
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 export PATH=$PATH:$HOME/.cargo/bin/:$HOME/Packages/flutter/bin
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/jakekato/.local/bin:$PATH"

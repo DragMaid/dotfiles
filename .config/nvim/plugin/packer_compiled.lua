@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/jakekato/.cache/nvim/packer_hererocks/2.1.1774896198/share/lua/5.1/?.lua;/home/jakekato/.cache/nvim/packer_hererocks/2.1.1774896198/share/lua/5.1/?/init.lua;/home/jakekato/.cache/nvim/packer_hererocks/2.1.1774896198/lib/luarocks/rocks-5.1/?.lua;/home/jakekato/.cache/nvim/packer_hererocks/2.1.1774896198/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/jakekato/.cache/nvim/packer_hererocks/2.1.1774896198/lib/lua/5.1/?.so"
+local package_path_str = "/home/jakekato/.cache/nvim/packer_hererocks/2.1.1780076327/share/lua/5.1/?.lua;/home/jakekato/.cache/nvim/packer_hererocks/2.1.1780076327/share/lua/5.1/?/init.lua;/home/jakekato/.cache/nvim/packer_hererocks/2.1.1780076327/lib/luarocks/rocks-5.1/?.lua;/home/jakekato/.cache/nvim/packer_hererocks/2.1.1780076327/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/jakekato/.cache/nvim/packer_hererocks/2.1.1780076327/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -103,6 +103,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jakekato/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["dart-vim-plugin"] = {
+    loaded = true,
+    path = "/home/jakekato/.local/share/nvim/site/pack/packer/start/dart-vim-plugin",
+    url = "https://github.com/dart-lang/dart-vim-plugin"
+  },
+  ["diffview.nvim"] = {
+    loaded = true,
+    path = "/home/jakekato/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+    url = "https://github.com/sindrets/diffview.nvim"
   },
   ["emmet-vim"] = {
     loaded = true,
@@ -244,6 +254,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jakekato/.local/share/nvim/site/pack/packer/start/vim-devicons",
     url = "https://github.com/ryanoasis/vim-devicons"
+  },
+  ["vim-lsc"] = {
+    loaded = true,
+    path = "/home/jakekato/.local/share/nvim/site/pack/packer/start/vim-lsc",
+    url = "https://github.com/natebosch/vim-lsc"
+  },
+  ["vim-lsc-dart"] = {
+    loaded = true,
+    path = "/home/jakekato/.local/share/nvim/site/pack/packer/start/vim-lsc-dart",
+    url = "https://github.com/natebosch/vim-lsc-dart"
   },
   ["vim-startify"] = {
     loaded = true,

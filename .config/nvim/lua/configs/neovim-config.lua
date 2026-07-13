@@ -3,6 +3,12 @@ vim.o.mouse = ""
 vim.o.background = 'dark'
 vim.g.gruvbox_contrast_dark = 'dark'
 vim.cmd([[colorscheme gruvbox]])
+
+-- Added lines
+vim.api.nvim_set_hl(0, "DiffAdd", {
+    bg = "#1f3328",
+})
+
 --vim.g.ayucolor="mirage"
 --vim.cmd([[colorscheme ayu]])
 --vim.cmd([[colorscheme default]])
@@ -14,7 +20,7 @@ vim.cmd([[colorscheme gruvbox]])
 --     highlight SignColumn ctermbg=NONE guibg=NONE
 -- ]])
 
-vim.opt.guifont="JetBrainsMono_Nerd_Font:h21"
+vim.opt.guifont = "JetBrainsMono_Nerd_Font:h21"
 -- vim.opt.clipboard="unnamedplus"
 
 -- Basic vim configs
@@ -63,10 +69,31 @@ endfunction
 ]], false)
 
 vim.api.nvim_exec([[
-    autocmd VimEnter * nested call RestoreSession() 
+    autocmd VimEnter * nested call RestoreSession()
 ]], false)
 
 vim.api.nvim_exec([[
     au FocusGained,BufEnter * :checktime
     au VimLeave * :!clear
 ]], false)
+
+-- For diffview highlight customization
+-- Removed lines
+vim.api.nvim_set_hl(0, "DiffDelete", {
+    bg = "#331f1f",
+})
+
+-- Modified lines
+vim.api.nvim_set_hl(0, "DiffChange", {
+    bg = "#23293f",
+})
+
+-- Currently focused changed block
+vim.api.nvim_set_hl(0, "DiffText", {
+    bg = "#31476b",
+    bold = true,
+})
+
+vim.opt.fillchars:append({
+    diff = " ",
+})

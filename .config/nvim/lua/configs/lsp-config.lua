@@ -1,6 +1,6 @@
 local lsp = require('lsp-zero')
 
-local lsp_attach = function(client, bufnr)
+local lsp_attach = function(_, bufnr)
     local opts = { buffer = bufnr }
     --This one will be set in neoshort from now on (cause of another plugin)
     --vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
@@ -43,13 +43,15 @@ cmp.setup({
 })
 
 require('mason').setup({})
-require('mason-lspconfig').setup({
-    ensure_installed = { 'lua_ls', 'rust_analyzer' },
-    handlers = {
-        function(server_name)
-            require('lspconfig')[server_name].setup({})
-        end,
-    }
+require('mason-lspconfig').setup({ ensure_installed = { 'lua_ls', 'pyright' }})
+
+vim.lsp.config("dartls", {
+    cmd = { "dart", "language-server", "--protocol=lsp" },
+    filetypes = { "dart" },
+    root_markers = { "pubspec.yaml" },
+    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+    on_attach = lsp_attach,
 })
 
+vim.lsp.enable("dartls")
 lsp.setup()
