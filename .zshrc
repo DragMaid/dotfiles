@@ -135,4 +135,4 @@ export PATH=$PATH:$HOME/.cargo/bin/:$HOME/Packages/flutter/bin
 
 
 # Added by Antigravity CLI installer
-export PATH="/home/jakekato/.local/bin:$PATH"
+export PATH="/home/jakekato/.local/bin:/home/jakekato/.dotnet/tools:$PATH"

@@ -1,0 +1,46 @@
+;; ----------------------------
+;; Kanata config for Corne (ZMK)
+;; ----------------------------
+;; Runs as a second kanata instance next to config.kbd and only grabs the Corne.
+;; Layers live in the ZMK firmware (~/Code/corne-v4/config/corne.keymap); kanata
+;; only adds homerow mods. The lower/raise layers never send a s d f j k l ;
+;; (they send arrows/numbers/real mods instead), so these only fire on the
+;; Corne's default layer.
+
+(defcfg
+  process-unmapped-keys yes
+  ;; evdev names: "Corne" over Bluetooth, "ZMK Project Corne Keyboard" over USB
+  linux-dev-names-include ("Corne" "ZMK Project Corne Keyboard")
+  ;; start even when the Corne is disconnected, grab it once it connects
+  linux-continue-if-no-devs-found yes
+)
+
+;; Only the homerow keys are listed; everything else passes through untouched
+(defsrc
+  a    s    d    f         j    k    l    ;
+)
+
+;; Tap/hold timings
+(defvar
+  p-tap-time 175
+  p-hold-time 175
+  tap-time 175
+  hold-time 175
+)
+
+(deflayer base
+  @a   @s   @d   @f        @j   @k   @l   @;
+)
+
+;; homerow mods (same order as config.kbd and the ZMK lower/raise layers)
+(defalias
+  a (tap-hold $p-tap-time $p-hold-time a lmet )
+  s (tap-hold $tap-time $hold-time s lalt )
+  d (tap-hold $tap-time $hold-time d lsft )
+  f (tap-hold $tap-time $hold-time f lctl )
+
+  j (tap-hold $tap-time $hold-time j rctl )
+  k (tap-hold $tap-time $hold-time k rsft )
+  l (tap-hold $tap-time $hold-time l ralt )
+  ; (tap-hold $p-tap-time $p-hold-time ; lmet)
+)

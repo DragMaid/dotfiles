@@ -34,6 +34,7 @@ exec swayidle -w \
          before-sleep 'swaylock -f -c 000000'
 
 exec kanata -c ~/.config/kanata/config.kbd
+exec kanata -c ~/.config/kanata/corne.kbd
 
 ### Floating defaults for some apps
 for_window [app_id="nemo"] \
@@ -88,6 +89,10 @@ input type:touchpad {
 
     bindsym Control+space exec --no-startup-id dunstctl close
     bindsym Control+Shift+space exec --no-startup-id dunstctl close-all
+
+    bindsym $mod+Shift+o output * power off
+    bindsym $mod+Shift+s output * power on
+
 
 # Moving around:
     # Move your focus around

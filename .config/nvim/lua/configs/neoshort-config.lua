@@ -120,7 +120,6 @@ vim.keymap.set("n", "<C-b>", "<cmd>cprev<cr>", { silent = true, noremap = true }
 -- Shortcuts to operate the diagnostic messages
 vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end, opts)
 vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end, opts)
--- vim.keymap.set('n', '<leader>d', function() vim.diagnostic.open_float() end, opts)
 vim.keymap.set('n', '<leader>do', function() vim.diagnostic.setloclist() end, opts)
 
 -- Diagnostic
@@ -132,7 +131,23 @@ vim.keymap.set('n', 'gK', function() require('hover').enter() end)
 
 -- Shortcut for loading lsp for all files
 vim.keymap.set('n', '<leader>ds', function()
+    print("Running workspace diagnostics ...")
     for _, client in ipairs(vim.lsp.get_clients()) do
         require("workspace-diagnostics").populate_workspace_diagnostics(client, 0)
     end
 end, { noremap = true })
+
+vim.api.nvim_create_user_command("DiffviewToggle", function()
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+        local buf = vim.api.nvim_win_get_buf(win)
+        local ft = vim.bo[buf].filetype
+
+        if ft == "DiffviewFiles" or ft == "DiffviewFileHistory" then
+            vim.cmd("DiffviewClose")
+            return
+        end
+    end
+
+    vim.cmd("DiffviewOpen")
+end, {})
+vim.keymap.set("n", "<leader>dv", "<cmd>DiffviewToggle<CR>", { desc = "Toggle Diffview" })

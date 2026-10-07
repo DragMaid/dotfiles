@@ -4,6 +4,8 @@
 
 (defcfg
   process-unmapped-keys yes
+  ;; only the built-in keyboard; the Corne is handled by corne.kbd
+  linux-dev /dev/input/by-path/platform-i8042-serio-0-event-kbd
 )
 
 ;; Japanese key remaps

@@ -14,4 +14,3 @@ require('configs/treesitter-config')
 require('configs/hover-config')
 require('configs/nerdtree-config')
 require('configs/neovide-config')
-

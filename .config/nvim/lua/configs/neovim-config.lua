@@ -34,6 +34,7 @@ vim.opt.foldenable = false
 
 -- UI related configs
 vim.cmd("syntax on")
+vim.opt.mouse = "a"
 vim.opt.cursorline = true
 vim.opt.smartindent = true
 vim.opt.scrolloff = 8
